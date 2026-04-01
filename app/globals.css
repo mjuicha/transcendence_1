@@ -20,7 +20,55 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-gray-900 text-slate-800 antialiased;
 }
+
+.sidebar {
+  @apply flex flex-col gap-2 mt-8;
+}
+
+.sidebar-item {
+  @apply flex items-center gap-4 px-3 py-3 rounded-full
+         text-slate-400 hover:bg-slate-800 transition-colors cursor-pointer;
+}
+
+.sidebar-item--active {
+  @apply bg-purple-500/10 text-purple-400 font-semibold hover:bg-purple-500/10;
+}
+
+.sidebar-item--active span {
+  @apply text-purple-400;
+}
+
+.create-post-btn {
+  @apply bg-[#895af6] text-white w-full py-4 rounded-full font-bold text-sm 
+         tracking-wide shadow-lg hover:opacity-90 transition-opacity;
+}
+.logo {
+  @apply flex items-center gap-3 px-2;
+}
+
+.logo h1 {
+  @apply text-xl font-bold tracking-tight text-white;
+}
+
+.navbar {
+  @apply flex items-center gap-4 px-3 py-3 rounded-xl bg-purple-500/10 text-purple-500 font-semibold;
+}
+
+.leftSide {
+  @apply w-64 shrink-0 h-screen flex flex-col justify-between p-6
+         border-r border-slate-800 bg-[#0f0f0f];
+}
+.main-content {
+  @apply flex-1 h-screen overflow-y-auto;
+}
+
+.right-panel {
+  @apply w-72 shrink-0 h-screen border-l border-slate-800;
+}
+
+.home {
+  @apply flex h-screen overflow-hidden bg-gray-900;
+}
+
