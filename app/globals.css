@@ -60,9 +60,88 @@ body {
   @apply w-64 shrink-0 h-screen flex flex-col justify-between p-6
          border-r border-slate-800 bg-[#0f0f0f];
 }
+/****************************************/
+/****************************************/
+/****************************************/
+
 .main-content {
-  @apply flex-1 h-screen overflow-y-auto;
+  @apply flex-1 flex flex-col h-screen overflow-hidden bg-[#0f0f0f];
 }
+
+.feed-container {
+  @apply flex-1 overflow-y-auto;
+}
+
+.feed-inner {
+  @apply max-w-2xl mx-auto py-8 px-4 flex flex-col gap-8;
+}
+
+.postcard-card {
+  @apply bg-[#1a1a1a] rounded-2xl border border-slate-800 overflow-hidden shadow-lg;
+}
+
+.postcard-header {
+  @apply p-4 flex items-center justify-between;
+}
+
+.postcard-header-right {
+  @apply flex items-center gap-3;
+}
+
+.postcard-header-profile-image {
+  @apply size-10 rounded-full bg-slate-600 bg-cover bg-center;
+}
+
+.postcard-header-text-info {
+  @apply flex flex-col;
+}
+
+.postcard-header-username {
+  @apply font-bold text-sm text-white;
+}
+
+.postcard-header-time-location {
+  @apply text-xs text-slate-500;
+}
+
+.postcard-header-left {
+  @apply text-slate-500 hover:text-slate-300;
+}
+
+.postcard-content {
+  @apply px-4 pb-3;
+}
+
+.postcard-content-text {
+  @apply text-sm leading-relaxed text-slate-300;
+}
+
+.postcard-image {
+  @apply w-full overflow-hidden;
+}
+
+.postcard-action {
+  @apply p-4 flex items-center justify-between;
+}
+
+.postcard-action-left {
+  @apply flex items-center gap-6;
+}
+
+.postcard-action-icon {
+  @apply flex items-center gap-2 text-slate-400 hover:text-[#895af6] transition-colors;
+}
+
+.action-span {
+  @apply text-xs font-bold;
+}
+
+.postcard-action-right {
+  @apply text-slate-400 hover:text-slate-200 transition-colors;
+}
+
+
+
 
 .right-panel {
   @apply w-72 shrink-0 h-screen border-l border-slate-800;
