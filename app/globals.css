@@ -56,6 +56,22 @@ body {
   @apply flex items-center gap-4 px-3 py-3 rounded-xl bg-purple-500/10 text-purple-500 font-semibold;
 }
 
+.minicard-profile {
+  @apply flex items-center gap-3 p-3 rounded-xl bg-slate-800/50;
+}
+
+.minicard-profile-info {
+  @apply flex flex-col;
+}
+
+.minicard-username {
+  @apply text-sm font-bold text-white;
+}
+
+.minicard-name {
+  @apply text-xs text-slate-500;
+}
+
 .leftSide {
   @apply w-64 shrink-0 h-screen flex flex-col justify-between p-6
          border-r border-slate-800 bg-[#0f0f0f];
@@ -70,6 +86,21 @@ body {
 
 .feed-container {
   @apply flex-1 overflow-y-auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(137, 90, 246, 0.2) transparent;
+}
+
+.feed-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.feed-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.feed-container::-webkit-scrollbar-thumb {
+  background-color: rgba(137, 90, 246, 0.2);
+  border-radius: 10px;
 }
 
 .feed-inner {
@@ -88,8 +119,8 @@ body {
   @apply flex items-center gap-3;
 }
 
-.postcard-header-profile-image {
-  @apply size-10 rounded-full bg-slate-600 bg-cover bg-center;
+.header-profile-image {
+  @apply size-10 rounded-full bg-cover bg-center;
 }
 
 .postcard-header-text-info {
@@ -128,26 +159,196 @@ body {
   @apply flex items-center gap-6;
 }
 
+/* Default — both grey */
 .postcard-action-icon {
-  @apply flex items-center gap-2 text-slate-400 hover:text-[#895af6] transition-colors;
+  @apply flex items-center gap-2 text-slate-400 transition-colors cursor-pointer;
 }
 
+/* Hover no click — both white */
+.postcard-action-icon:hover .like-icon,
+.postcard-action-icon:hover .action-span {
+  @apply text-white;
+}
+
+/* Liked — only icon purple, numbers stay grey */
+.postcard-action-icon.liked .like-icon {
+  @apply text-[#895af6];
+}
+
+.postcard-action-icon.liked .action-span {
+  @apply text-slate-400;
+}
+
+/* Liked + hover — icon stays purple, numbers turn white */
+.postcard-action-icon.liked:hover .like-icon {
+  @apply text-[#895af6];
+}
+
+.postcard-action-icon.liked:hover .action-span {
+  @apply text-white;
+}
 .action-span {
   @apply text-xs font-bold;
 }
 
 .postcard-action-right {
-  @apply text-slate-400 hover:text-slate-200 transition-colors;
+  @apply text-slate-400 transition-colors cursor-pointer;
+}
+
+.postcard-action-right:hover {
+  @apply text-white;
+}
+
+.postcard-action-right.saved {
+  @apply text-[#895af6];
+}
+
+.postcard-action-right.saved:hover {
+  @apply text-[#895af6];
+}
+
+.postcard-action-right svg,
+.postcard-action-right path {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/**************************************/
+/**************************************/
+/**************************************/
+
+
+.createpost-card {
+  @apply bg-[#1a1a1a] rounded-2xl border border-slate-800 shadow-lg p-4 flex flex-col gap-4;
+}
+
+.createpost-top {
+  @apply flex gap-4;
+}
+
+.createpost-input {
+  @apply w-full bg-transparent border-none focus:ring-0 
+         text-slate-100 placeholder-slate-500 
+         resize-none py-2 text-sm outline-none;
+}
+
+.createpost-bottom {
+  @apply flex items-center justify-between border-t border-slate-800 pt-3;
+}
+
+.createpost-image-btn {
+  @apply flex items-center gap-2 text-slate-400 
+         hover:text-[#895af6] transition-colors text-sm font-medium;
+}
+
+.createpost-image-btn svg,
+.createpost-image-btn path {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.createpost-post-btn {
+  @apply bg-[#895af6] text-white px-6 py-2 rounded-xl 
+         font-bold text-sm hover:opacity-90 transition-opacity;
 }
 
 
+/***************************************/
+/***************************************/
+/***************************************/
 
-
-.right-panel {
-  @apply w-72 shrink-0 h-screen border-l border-slate-800;
+.comment-section {
+  @apply border-t border-slate-800 flex flex-col gap-4 p-4;
+  background-color: #0f0f0f;
 }
+
+.comment-list {
+  @apply flex flex-col gap-4;
+}
+
+.comment-item {
+  @apply flex gap-3;
+}
+
+.comment-avatar {
+  @apply w-8 h-8 rounded-full bg-slate-700 flex items-center 
+         justify-center text-xs font-bold text-white shrink-0;
+}
+
+.comment-body {
+  @apply flex flex-col gap-1 flex-1;
+}
+
+.comment-bubble {
+  @apply px-3 py-2 rounded-2xl rounded-tl-none;
+  background-color: #242424;
+}
+
+.comment-name {
+  @apply font-bold text-xs text-white block mb-0.5;
+}
+
+.comment-text {
+  @apply text-sm text-slate-400;
+}
+
+.comment-meta {
+  @apply flex gap-4 text-[10px] font-bold text-slate-500 px-1;
+}
+
+.comment-reply-btn {
+  @apply uppercase tracking-wider transition-colors;
+  color: #64748b;
+}
+
+.comment-reply-btn:hover {
+  color: #895af6;
+}
+
+.comment-input-area {
+  @apply flex gap-3 items-center border-t border-slate-800 pt-4;
+}
+
+.comment-input-avatar {
+  @apply w-9 h-9 rounded-full bg-slate-700 shrink-0;
+}
+
+.comment-input-wrapper {
+  @apply flex-1 relative;
+}
+
+.comment-input {
+  @apply w-full border-none rounded-xl text-sm 
+         px-3 py-3 pr-12 resize-none
+         placeholder-slate-500 text-slate-100 outline-none;
+  background-color: #242424;
+  min-height: 44px;
+  line-height: 1.5;
+}
+
+.comment-input:focus {
+  outline: 1px solid #895af6;
+}
+
+.comment-input-actions {
+  @apply absolute right-3 flex items-center gap-1;
+  top: 45%;
+  transform: translateY(-50%);
+}
+
+.comment-input-btn {
+  color: #895af6;
+}
+
+.comment-input-btn:hover {
+  opacity: 0.8;
+}
+
+/*/***********************/
+/*/***********************/
+/*/***********************/
 
 .home {
-  @apply flex h-screen overflow-hidden bg-gray-900;
+  @apply flex h-screen overflow-hidden bg-[#0f0f0f];
 }
 
