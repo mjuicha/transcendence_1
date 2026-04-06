@@ -43,7 +43,7 @@ function SideBar() {
           <nav className="sidebar">
             <Navbar 
               icon={<HomeIcon />}
-              text="Home" 
+              text="Home"
               active={true}
               />
             <Navbar
@@ -158,10 +158,10 @@ function PostCard({ username, image_profile, time, location, content, image, lik
             <span className="like-icon"><LikeIcon /></span>
             <span className="action-span">{likes}</span>
           </button>
-          <button className="postcard-action-icon "
+          <button className={`postcard-action-icon ${showComments ? "liked" : ""}`}
             onClick={() => setShowComments(!showComments)}
           >
-            <span className="action-span"><CommentIcon /></span>
+            <span className="like-icon"><CommentIcon /></span>
             <span className="action-span">{comments}</span>
           </button>
           <button className="postcard-action-icon">
